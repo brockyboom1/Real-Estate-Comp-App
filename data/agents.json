@@ -1,0 +1,114 @@
+{
+  "woodards": {
+    "company": {
+      "name": "Woodards",
+      "suburb": "South Yarra",
+      "address": "Level 1, 157 Toorak Rd, South Yarra, VIC 3141",
+      "phone": "03 9866 4411",
+      "rating": {
+        "stars": 4.7,
+        "total_reviews": 557
+      }
+    },
+    "team": [
+      {
+        "name": "Luke Piccolo",
+        "title": "Director",
+        "phone": "0412 951 273",
+        "photo": "/images/agents/luke-piccolo.jpg",
+        "performance": {
+          "medianSoldPrice": "769k",
+          "medianDaysAdvertised": "31",
+          "propertiesSoldLead": "21",
+          "propertiesSoldSecondary": "20"
+        }
+      },
+      {
+        "name": "Bill Cook",
+        "title": "General Manager",
+        "phone": "0411 089 890",
+        "photo": "/images/agents/bill-cook.jpg"
+      },
+      {
+        "name": "Philippe Batters",
+        "title": "Sales Manager",
+        "phone": "0418 992 103"
+      },
+      {
+        "name": "Cate Vesely",
+        "title": "Sales Consultant",
+        "phone": "0401 018 807"
+      },
+      {
+        "name": "Edward Carlile",
+        "title": "Licensed Estate Agent | Sales Consultant",
+        "phone": "0438 800 606"
+      },
+      {
+        "name": "Valentina Aushana",
+        "title": "Property Consultant",
+        "phone": "0423 483 267"
+      },
+      {
+        "name": "Renee Fisher",
+        "title": "Property Consultant/EA to director",
+        "phone": "0406 544 155"
+      },
+      {
+        "name": "Eimear White",
+        "title": "Property Manager",
+        "phone": "0431 477 454"
+      },
+      {
+        "name": "Nadia Caputo",
+        "title": "Sales and Marketing Coordinator",
+        "phone": "03 9866 4411"
+      },
+      {
+        "name": "Sylwia Kapera",
+        "title": "Property Manager",
+        "phone": "0477 477 846"
+      },
+      {
+        "name": "Madlen Dimitrova",
+        "title": "Senior Property Manager",
+        "phone": "0429 573 416"
+      },
+      {
+        "name": "Grace Sofia",
+        "title": "Senior Property Manager",
+        "phone": "0458 242 533"
+      },
+      {
+        "name": "Jasmine Kesici",
+        "title": "Team Leader - Property Management",
+        "phone": "0458 242 574"
+      },
+      {
+        "name": "Joshua Ling",
+        "title": "Senior Leasing Consultant",
+        "phone": "0448 448 982"
+      },
+      {
+        "name": "Joshua Sulit",
+        "title": "Property Manager",
+        "phone": "0401 948 989"
+      },
+      {
+        "name": "Kelly Curtis",
+        "title": "Property Manager",
+        "phone": "0458 242 538"
+      },
+      {
+        "name": "Yiotis Christodoulou",
+        "title": "New Business Development Manager",
+        "phone": "0468 967 566"
+      },
+      {
+        "name": "Shiba Sotounzadeh",
+        "title": "Administration Assistant",
+        "phone": "03 9866 4411"
+      }
+    ]
+  }
+}

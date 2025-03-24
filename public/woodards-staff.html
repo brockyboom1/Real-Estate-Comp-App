@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Woodards Staff Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 30px;
+        }
+        .staff-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .staff-table th, .staff-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .staff-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+            color: #374151;
+        }
+        .staff-table tr:hover {
+            background-color: #f9fafb;
+        }
+        .agent-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .agent-name {
+            font-weight: 500;
+            color: #1f2937;
+        }
+        .agent-title {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        .agent-phone {
+            color: #4b5563;
+        }
+        .performance-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .stat-label {
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Woodards Staff Directory</h1>
+        <table class="staff-table">
+            <thead>
+                <tr>
+                    <th>Agent</th>
+                    <th>Position</th>
+                    <th>Phone</th>
+                    <th>Performance</th>
+                </tr>
+            </thead>
+            <tbody id="staffTableBody">
+                <!-- Staff data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadStaffData() {
+            try {
+                const response = await fetch('/api/agencies');
+                const data = await response.json();
+                const woodardsStaff = data.woodards.team;
+                
+                const tableBody = document.getElementById('staffTableBody');
+                
+                woodardsStaff.forEach(agent => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <div class="agent-info">
+                                <img src="${agent.photo || '/images/default-avatar.jpg'}" 
+                                     alt="${agent.name}" 
+                                     class="agent-photo"
+                                     onerror="this.src='/images/default-avatar.jpg'">
+                                <div>
+                                    <div class="agent-name">${agent.name}</div>
+                                    <div class="agent-title">${agent.title}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${agent.title}</td>
+                        <td class="agent-phone">${agent.phone}</td>
+                        <td>
+                            ${agent.performance ? `
+                                <div class="performance-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Median Price:</span>
+                                        <span>$${agent.performance.medianSoldPrice}</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Days:</span>
+                                        <span>${agent.performance.medianDaysAdvertised}</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Lead Sales:</span>
+                                        <span>${agent.performance.propertiesSoldLead}</span>
+                                    </div>
+                                </div>
+                            ` : '-'}
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading staff data:', error);
+            }
+        }
+
+        // Load the staff data when the page loads
+        document.addEventListener('DOMContentLoaded', loadStaffData);
+    </script>
+</body>
+</html> 

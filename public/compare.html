@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Agents - Real Estate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+        }
+
+        .header {
+            background-color: #4c6ef5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .toggle-switch {
+            display: flex;
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 4px;
+            margin: 20px 0;
+        }
+
+        .toggle-option {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-option.active {
+            background: #4c6ef5;
+            color: white;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .agent-selector {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agent-selector h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .agent-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .agent-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .agent-card.selected {
+            border-color: #4c6ef5;
+            background: #f0f4ff;
+        }
+
+        .agent-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+
+        .agent-position {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .comparison-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-comparison {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-title {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eef1f5;
+        }
+
+        .stat-cards {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4c6ef5;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .stat-name {
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .better {
+            color: #4caf50;
+        }
+
+        .worse {
+            color: #f44336;
+        }
+
+        .better-performer {
+            border: 2px solid #4caf50;
+            background: #f1f8f1;
+        }
+
+        .difference-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+        }
+
+        .difference-arrow {
+            font-size: 24px;
+            margin: 5px 0;
+        }
+
+        .difference-value {
+            font-weight: bold;
+            position: absolute;
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .no-agents-message {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #4c6ef5;
+            box-shadow: 0 0 0 2px rgba(76,110,245,0.1);
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Compare Agents</h1>
+    </div>
+
+    <div class="container">
+        <div class="toggle-container">
+            <div class="toggle-switch">
+                <div class="toggle-option active" data-type="sales">Sales Agent</div>
+                <div class="toggle-option" data-type="property">Property Manager</div>
+            </div>
+        </div>
+
+        <div class="comparison-container">
+            <div class="agent-selector">
+                <h3>Select First Agent</h3>
+                <div class="search-container">
+                    <input type="text" 
+                           class="search-input" 
+                           id="firstAgentSearch" 
+                           placeholder="Search by name, position, or agency...">
+                </div>
+                <div class="agent-list" id="firstAgentList"></div>
+            </div>
+            <div class="agent-selector">
+                <h3>Select Second Agent</h3>
+                <div class="search-container">
+                    <input type="text" 
+                           class="search-input" 
+                           id="secondAgentSearch" 
+                           placeholder="Search by name, position, or agency...">
+                </div>
+                <div class="agent-list" id="secondAgentList"></div>
+            </div>
+        </div>
+
+        <div class="comparison-stats" id="comparisonStats"></div>
+    </div>
+
+    <script>
+        // Fetch agents data from the server
+        async function fetchAgents() {
+            const response = await fetch('/api/agencies');
+            const agencies = await response.json();
+            return agencies;
+        }
+
+        // Filter agents by type (sales or property)
+        function filterAgentsByType(agencies, type) {
+            const salesTitles = ['Director', 'Principal', 'Sales Manager', 'Sales Consultant', 'Sales Associate'];
+            const propertyTitles = ['Property Manager', 'Senior Property Manager', 'Leasing Consultant'];
+            
+            const allAgents = [];
+            
+            agencies.forEach(agency => {
+                if (agency.staff) {
+                    agency.staff.forEach(staff => {
+                        const position = staff.position || '';
+                        const isSales = salesTitles.some(title => position.includes(title));
+                        const isProperty = propertyTitles.some(title => position.includes(title));
+                        
+                        if ((type === 'sales' && isSales) || (type === 'property' && isProperty)) {
+                            allAgents.push({
+                                ...staff,
+                                agency: agency.name
+                            });
+                        }
+                    });
+                }
+            });
+            
+            return allAgents;
+        }
+
+        // Add this new function for searching agents
+        function searchAgents(agents, searchTerm) {
+            if (!searchTerm) return agents;
+            
+            searchTerm = searchTerm.toLowerCase();
+            return agents.filter(agent => {
+                const name = (agent.name || '').toLowerCase();
+                const position = (agent.position || '').toLowerCase();
+                const agency = (agent.agency || '').toLowerCase();
+                
+                return name.includes(searchTerm) || 
+                       position.includes(searchTerm) || 
+                       agency.includes(searchTerm);
+            });
+        }
+
+        // Update the renderAgentList function to accept a search term
+        function renderAgentList(agents, containerId, onSelect, searchTerm = '') {
+            const filteredAgents = searchAgents(agents, searchTerm);
+            const container = document.getElementById(containerId);
+            
+            if (!filteredAgents.length) {
+                container.innerHTML = searchTerm 
+                    ? '<div class="no-agents-message">No agents found matching your search</div>'
+                    : '<div class="no-agents-message">No agents available</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            filteredAgents.forEach(agent => {
+                const card = document.createElement('div');
+                card.className = 'agent-card';
+                card.innerHTML = `
+                    <img src="${agent.photo || '/images/default-avatar.jpg'}" class="agent-photo" alt="${agent.name}">
+                    <div class="agent-info">
+                        <h4 class="agent-name">${agent.name}</h4>
+                        <p class="agent-position">${agent.position}</p>
+                        <p class="agent-agency">${agent.agency}</p>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    container.querySelectorAll('.agent-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    onSelect(agent);
+                });
+                
+                container.appendChild(card);
+            });
+        }
+
+        function formatDifference(value1, value2, key) {
+            let diff;
+            if (key === 'medianSoldPrice') {
+                const val1 = parseInt(value1.replace(/[^0-9]/g, ''));
+                const val2 = parseInt(value2.replace(/[^0-9]/g, ''));
+                diff = val2 - val1;
+            } else {
+                diff = value2 - value1;
+            }
+            
+            let formattedDiff = '';
+            if (key === 'medianSoldPrice') {
+                formattedDiff = `$${Math.abs(diff)}k`;
+            } else {
+                formattedDiff = Math.abs(diff).toString();
+            }
+
+            // Determine which metrics are better when higher or lower
+            const betterWhenLower = ['medianDaysAdvertised'];
+            const betterWhenHigher = ['medianSoldPrice', 'propertiesSoldLead', 'propertiesSoldSecondary'];
+
+            let isBetter;
+            if (betterWhenLower.includes(key)) {
+                isBetter = diff < 0;  // Lower is better
+            } else if (betterWhenHigher.includes(key)) {
+                isBetter = diff > 0;  // Higher is better
+            }
+
+            // Always show green arrow for better performance
+            return {
+                value: formattedDiff,
+                arrow: diff > 0 ? '↑' : '↓',
+                class: 'better',  // Always green when showing the better performer
+                isPositive: diff > 0
+            };
+        }
+
+        function compareAgents(agent1, agent2) {
+            const statsContainer = document.getElementById('comparisonStats');
+            if (!agent1?.performance || !agent2?.performance) {
+                statsContainer.innerHTML = '';
+                return;
+            }
+
+            const stats = [
+                { label: 'Median Sold Price', key: 'medianSoldPrice', title: 'Sales Performance' },
+                { label: 'Median Days Advertised', key: 'medianDaysAdvertised', title: 'Time on Market' },
+                { label: 'Properties Sold (Lead)', key: 'propertiesSoldLead', title: 'Lead Sales' },
+                { label: 'Properties Sold (Secondary)', key: 'propertiesSoldSecondary', title: 'Secondary Sales' }
+            ];
+
+            statsContainer.innerHTML = stats.map(stat => {
+                const val1 = agent1.performance[stat.key];
+                const val2 = agent2.performance[stat.key];
+                
+                // Compare values to determine which agent performed better
+                let betterAgent, worseAgent, difference;
+                
+                if (stat.key === 'medianDaysAdvertised') {
+                    // For days advertised, lower is better
+                    if (parseInt(val1) <= parseInt(val2)) {
+                        betterAgent = agent1;
+                        worseAgent = agent2;
+                        difference = formatDifference(val1, val2, stat.key);
+                    } else {
+                        betterAgent = agent2;
+                        worseAgent = agent1;
+                        difference = formatDifference(val2, val1, stat.key);
+                    }
+                } else {
+                    // For all other metrics, higher is better
+                    if (parseInt(val1.toString().replace(/[^0-9]/g, '')) >= parseInt(val2.toString().replace(/[^0-9]/g, ''))) {
+                        betterAgent = agent1;
+                        worseAgent = agent2;
+                        difference = formatDifference(val2, val1, stat.key);
+                    } else {
+                        betterAgent = agent2;
+                        worseAgent = agent1;
+                        difference = formatDifference(val1, val2, stat.key);
+                    }
+                }
+
+                return `
+                    <div class="stat-comparison">
+                        <div class="stat-title">${stat.title}</div>
+                        <div class="stat-cards">
+                            <div class="stat-card ${betterAgent === agent1 ? 'better-performer' : ''}">
+                                <div class="stat-label">${stat.label}</div>
+                                <div class="stat-value">${agent1.performance[stat.key]}</div>
+                                <div class="stat-name">${agent1.name}</div>
+                            </div>
+                            <div class="difference-indicator">
+                                <div class="difference-arrow better">${difference.arrow}</div>
+                                <div class="difference-value better">${difference.value}</div>
+                            </div>
+                            <div class="stat-card ${betterAgent === agent2 ? 'better-performer' : ''}">
+                                <div class="stat-label">${stat.label}</div>
+                                <div class="stat-value">${agent2.performance[stat.key]}</div>
+                                <div class="stat-name">${agent2.name}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update the initComparison function
+        async function initComparison() {
+            const agencies = await fetchAgents();
+            let selectedType = 'sales';
+            let selectedAgent1 = null;
+            let selectedAgent2 = null;
+            let currentAgents = [];
+
+            function updateAgentLists(searchTerm1 = '', searchTerm2 = '') {
+                currentAgents = filterAgentsByType(agencies, selectedType);
+                renderAgentList(currentAgents, 'firstAgentList', agent => {
+                    selectedAgent1 = agent;
+                    compareAgents(selectedAgent1, selectedAgent2);
+                }, searchTerm1);
+                renderAgentList(currentAgents, 'secondAgentList', agent => {
+                    selectedAgent2 = agent;
+                    compareAgents(selectedAgent1, selectedAgent2);
+                }, searchTerm2);
+            }
+
+            // Add search functionality
+            const searchInput1 = document.getElementById('firstAgentSearch');
+            const searchInput2 = document.getElementById('secondAgentSearch');
+
+            let searchTimeout1, searchTimeout2;
+
+            searchInput1.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout1);
+                searchTimeout1 = setTimeout(() => {
+                    updateAgentLists(e.target.value, searchInput2.value);
+                }, 300);
+            });
+
+            searchInput2.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout2);
+                searchTimeout2 = setTimeout(() => {
+                    updateAgentLists(searchInput1.value, e.target.value);
+                }, 300);
+            });
+
+            // Toggle switch functionality
+            document.querySelectorAll('.toggle-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    document.querySelectorAll('.toggle-option').forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    selectedType = option.dataset.type;
+                    selectedAgent1 = null;
+                    selectedAgent2 = null;
+                    searchInput1.value = '';
+                    searchInput2.value = '';
+                    updateAgentLists();
+                });
+            });
+
+            // Initial render
+            updateAgentLists();
+        }
+
+        // Start the application
+        initComparison();
+    </script>
+</body>
+</html> 
