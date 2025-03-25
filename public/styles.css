@@ -1,0 +1,342 @@
+/* CSS for Real Estate Agency Map */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f5f5f5;
+  }
+  
+  .container {
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .filter-container, .search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  select, input, button {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  #map {
+    flex: 2;
+    background-color: #e0e0e0;
+    position: relative;
+  }
+  
+  #sidebar {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: white;
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  #agency-list {
+    flex: 1;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .agency-list-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .agency-list-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .agency-list-item.active {
+    background-color: #f0f7ff;
+    border-left: 4px solid #3498db;
+  }
+  
+  .agency-name {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #333;
+  }
+  
+  .agency-address {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .agency-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+  
+  .agency-type {
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: #555;
+  }
+  
+  .agency-type[data-type="Belle Property"] {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+  
+  .agency-type[data-type="Jellis Craig"] {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .agency-type[data-type="Biggin Scott"] {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .agency-staff-count {
+    color: #777;
+  }
+  
+  #agency-details {
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 50vh;
+  }
+  
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+  }
+  
+  .agency-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .agency-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f0f0f0;
+  }
+  
+  .agency-logo[data-type="Belle Property"] {
+    background-color: #ffebee;
+  }
+  
+  .agency-logo[data-type="Jellis Craig"] {
+    background-color: #e3f2fd;
+  }
+  
+  .agency-logo[data-type="Biggin Scott"] {
+    background-color: #e8f5e9;
+  }
+  
+  .agency-contact {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .agency-website {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .agency-website:hover {
+    text-decoration: underline;
+  }
+  
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .staff-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .staff-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .staff-photo-container {
+    height: 120px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+  }
+  
+  .staff-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .staff-info {
+    padding: 0.75rem;
+  }
+  
+  .staff-name {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .staff-position {
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .staff-contact {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .staff-contact a {
+    color: #3498db;
+  }
+  
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #999;
+  }
+  
+  /* Google Maps InfoWindow styling */
+  .gm-style .gm-style-iw-c {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .map-info-window {
+    padding: 5px;
+    max-width: 200px;
+  }
+  
+  .map-info-window h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .map-info-window p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .map-info-window a {
+    font-size: 12px;
+    color: #3498db;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  /* Custom marker colors */
+  .marker-belle {
+    background-color: #e74c3c;
+  }
+  
+  .marker-jellis {
+    background-color: #3498db;
+  }
+  
+  .marker-biggin {
+    background-color: #2ecc71;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
+    
+    #sidebar {
+      max-width: 100%;
+      min-width: 100%;
+    }
+    
+    #map {
+      height: 50vh;
+    }
+  }

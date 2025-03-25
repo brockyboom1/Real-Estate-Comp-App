@@ -50,115 +50,186 @@ const agencies = [
         name: "Belle Property",
         address: "85 Toorak Road, South Yarra, VIC 3141",
         phone: "03 9866 1888",
-        lat: -37.838791,
-        lng: 144.995197,
-        medianLeasePrice: "620",
-        medianDaysAdvertised: "29",
-        propertiesLeased: "678",
-        propertiesForRent: "55",
+        lat: -37.8397,
+        lng: 144.9959,
+        medianLeasePrice: 620,
+        medianDaysAdvertised: 29,
+        propertiesLeased: 678,
+        propertiesForRent: 55,
         staff: [
             {
-                name: "Nick Gatacre",
-                position: "Principal | Director",
-                phone: "0428 860 425",
+                name: 'Nick Gatacre',
+                position: 'Director / Auctioneer / Licensed Estate Agent',
+                phone: '0425 853 259',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/nick gatacre.jpeg',
                 performance: {
-                    medianSoldPrice: "$750k",
-                    medianDaysAdvertised: 31,
-                    propertiesSoldLead: 25,
-                    propertiesSoldSecondary: 18
+                    medianSoldPrice: "835",
+                    medianDaysAdvertised: 28,
+                    propertiesSoldLead: 26,
+                    propertiesSoldSecondary: 4
                 }
             },
             {
-                name: "Grant Wallace",
-                position: "Principal | Director",
-                phone: "0401 478 211",
+                name: 'Grant Wallace',
+                position: 'Principal Director / Auctioneer / Licensed Estate Agent',
+                phone: '0401 478 211',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/grant wallace.jpeg',
                 performance: {
-                    medianSoldPrice: "$780k",
+                    medianSoldPrice: "780",
                     medianDaysAdvertised: 29,
-                    propertiesSoldLead: 27,
-                    propertiesSoldSecondary: 24
+                    propertiesSoldLead: 26,
+                    propertiesSoldSecondary: 23
                 }
             },
             {
-                name: "Mark Konishi",
-                position: "Principal | Director",
-                phone: "0412 825 852",
+                name: 'Mark Konishi',
+                position: 'Director / Auctioneer / Licensed Estate Agent',
+                phone: '0412 825 852',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/mark konishi.jpeg',
                 performance: {
-                    medianSoldPrice: "$720k",
-                    medianDaysAdvertised: 32,
-                    propertiesSoldLead: 23,
-                    propertiesSoldSecondary: 19
+                    medianSoldPrice: "590",
+                    medianDaysAdvertised: 43,
+                    propertiesSoldLead: 37,
+                    propertiesSoldSecondary: 60
                 }
             },
             {
-                name: "Peter Perrignon",
-                position: "Principal",
-                phone: "0418 566 846"
+                name: 'Peter Perrignon',
+                position: 'Licensed Estate Agent',
+                phone: '0418 566 846',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/peter perrignon.jpeg',
+                performance: {
+                    medianSoldPrice: "655",
+                    medianDaysAdvertised: 29,
+                    propertiesSoldLead: 26,
+                    propertiesSoldSecondary: 5
+                }
             },
             {
-                name: "Anthony Benic",
-                position: "Sales Associate",
-                phone: "0466 474 536"
+                name: 'Carla Girolamo',
+                position: 'Sales Associate',
+                phone: '0419 522 572',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/carla girolamo.jpg',
+                performance: {
+                    medianSoldPrice: "820",
+                    medianDaysAdvertised: 53,
+                    propertiesSoldLead: 0,
+                    propertiesSoldSecondary: 11
+                }
             },
             {
-                name: "Carla Girolamo",
-                position: "Sales Associate",
-                phone: "0449 687 978"
+                name: 'Mathew Crothers',
+                position: 'Sales Associate',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/mathew crothers.jpg',
+                performance: {
+                    medianSoldPrice: "825",
+                    medianDaysAdvertised: 29,
+                    propertiesSoldLead: 1,
+                    propertiesSoldSecondary: 20
+                }
             },
             {
-                name: "Tyson Powell",
-                position: "Sales Associate",
-                phone: "0404 822 851"
+                name: 'Anthony Benic',
+                position: 'Sales Associate',
+                phone: '0466 474 536',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/anthony benic.jpg',
+                performance: {
+                    medianSoldPrice: "445",
+                    medianDaysAdvertised: 42,
+                    propertiesSoldLead: 35,
+                    propertiesSoldSecondary: 14
+                }
             },
             {
-                name: "Mathew Crothers",
-                position: "Sales Associate",
-                phone: "0421 699 639"
+                name: 'Tyson Powell',
+                position: 'Sales Associate',
+                phone: '0404 822 851',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/tyson powell.jpg',
+                performance: {
+                    medianSoldPrice: "640",
+                    medianDaysAdvertised: 65,
+                    propertiesSoldLead: 15,
+                    propertiesSoldSecondary: 20
+                }
             },
             {
-                name: "Jo Leonardis",
-                position: "Head of Property Management",
-                phone: "0419 565 859"
+                name: 'Finn Walker',
+                position: 'Property Manager',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/finn walker.jpg',
+                performance: {
+                    propertiesLeased: 5,
+                    medianLeasedPrice: 520
+                }
             },
             {
-                name: "Todd George",
-                position: "Business Development Manager",
-                phone: "0478 398 159"
+                name: 'Jason Tan',
+                position: 'Property Management Assistant',
+                phone: '0425 853 259',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/jason tan.jpg'
             },
             {
-                name: "Melissa Lloyd",
-                position: "Senior Property Manager",
-                phone: "0430 300 549"
+                name: 'Laura Thorwesten',
+                position: 'Property Manager',
+                phone: '0419 522 572',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/laura thorwesten.jpg',
+                performance: {
+                    propertiesLeased: 8,
+                    medianLeasedPrice: 495
+                }
             },
             {
-                name: "Laura Thorwesten",
-                position: "Property Manager",
-                phone: "0419 416 144"
+                name: 'Melissa Lloyd',
+                position: 'Senior Property Manager',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/melissa lloyd.png',
+                performance: {
+                    propertiesLeased: 12,
+                    medianLeasedPrice: 580
+                }
             },
             {
-                name: "Angela Keenan",
-                position: "Property Manager",
-                phone: "0448 916 480"
+                name: 'Sam Landale',
+                position: 'Leasing Consultant',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/sam landale.jpg'
             },
             {
-                name: "Sam Landale",
-                position: "Leasing Consultant",
-                phone: "0431 280 974"
+                name: 'Stamtia Pagouras',
+                position: 'Property Manager',
+                phone: '0425 853 259',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/stamtia pagouras.jpg',
+                performance: {
+                    propertiesLeased: 7,
+                    medianLeasedPrice: 510
+                }
             },
             {
-                name: "Finn Walker",
-                position: "Property Manager",
-                phone: "0430 300 552"
+                name: 'Todd George',
+                position: 'Business Development Manager',
+                phone: '0419 522 572',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/todd george.jpg'
             },
             {
-                name: "Jason Tan",
-                position: "Property Management Assistant",
-                phone: "0422 188 055"
+                name: 'Angela Keenan',
+                position: 'Property Manager',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/angela keenan.JPG',
+                performance: {
+                    propertiesLeased: 9,
+                    medianLeasedPrice: 540
+                }
             },
             {
-                name: "Stamatia Pagouras",
-                position: "Property Manager",
-                phone: "0458 006 546"
+                name: 'Jo Leonardis',
+                position: 'Head of Property Management',
+                phone: '0411 576 697',
+                photo: '/images/agents/Suburbs/South Yarra - 3141/Belle Property/jo leonardis.JPG',
+                performance: {
+                    propertiesLeased: 15,
+                    medianLeasedPrice: 620
+                }
             }
         ],
         reviews: {
