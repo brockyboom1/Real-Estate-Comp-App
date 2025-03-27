@@ -88,7 +88,8 @@
             padding: 30px;
             transition: transform 0.2s;
             height: fit-content;
-            min-width: 495px;  /* Increased from 450px */
+            min-width: 495px;
+            position: relative;
         }
 
         .agency-card:hover {
@@ -98,21 +99,274 @@
 
         .agency-name {
             font-size: 26px;
-            color: #4c6ef5;
             margin-bottom: 15px;
-            font-weight: bold;
+            text-align: center;
         }
 
         .agency-address {
             color: #555;
             font-size: 16px;
             margin-bottom: 12px;
+            text-align: center;
         }
 
         .agency-phone {
             color: #4c6ef5;
             font-size: 16px;
             margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .agency-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .agency-logo-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .agent-compare-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .agent-compare-label {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .agent-compare-label:hover {
+            background: #f0f0f0;
+        }
+
+        .agent-compare-label input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .agent-compare-label span {
+            font-size: 12px;
+            color: #333;
+        }
+
+        .staff-member {
+            position: relative;
+            /* ... existing staff-member styles ... */
+        }
+
+        .agency-compare-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        .agency-compare-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #4c6ef5;
+            background: rgba(76, 110, 245, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .agency-compare-label:hover {
+            background: rgba(76, 110, 245, 0.2);
+        }
+
+        .agency-compare-label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .agency-compare-label.checked {
+            background: #4c6ef5;
+            color: white;
+        }
+
+        /* Agency Comparison Bar */
+        #agencyCompareBar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .selected-agencies {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .selected-agency {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f4ff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .remove-agency {
+            cursor: pointer;
+            color: #666;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .agency-compare-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .agency-compare-button {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .agency-compare-button.primary {
+            background: #4c6ef5;
+            color: white;
+        }
+
+        .agency-compare-button.secondary {
+            background: #f0f4ff;
+            color: #4c6ef5;
+        }
+
+        .agency-compare-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Agency Comparison Modal */
+        #agencyComparisonModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1100;
+            overflow-y: auto;
+        }
+
+        .agency-comparison-content {
+            background: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .agency-comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .agency-comparison-card {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .agency-comparison-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .agency-comparison-card h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .agency-comparison-card p {
+            margin: 0;
+            color: #666;
+        }
+
+        .agency-metric-comparison {
+            display: grid;
+            gap: 20px;
+        }
+
+        .agency-metric-row {
+            display: grid;
+            grid-template-columns: 200px repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .agency-metric-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .agency-metric-value {
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .agency-metric-value.price {
+            color: #4c6ef5;
+        }
+
+        .agency-metric-value.days {
+            color: #2f9e44;
+        }
+
+        .agency-metric-value.properties {
+            color: #e03131;
+        }
+
+        .agency-name {
+            font-size: 36px;  /* Increased font size */
+            margin-bottom: 15px;
+        }
+
+        .agency-address, .agency-phone {
+            font-size: 18px;  /* Increased font size */
+            margin-bottom: 10px;
         }
 
         .agency-stats {
@@ -1090,6 +1344,512 @@
             font-weight: bold;
             color: #006B3F;
         }
+
+        .agent-profile {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .agent-profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f0f0f0;
+        }
+
+        .agent-profile-info {
+            flex: 1;
+        }
+
+        .agent-profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .agent-profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .agent-profile-position {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .agent-profile-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .agent-profile-contact i {
+            color: #666;
+        }
+
+        .agent-profile-contact span {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .agent-profile-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .metric-value span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .agent-profile-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .action-button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-button.primary {
+            background: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .action-button.secondary {
+            background: white;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .action-button:hover {
+            opacity: 0.9;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .metric-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .metric-value.price {
+            color: #28a745;
+        }
+
+        .metric-value.days {
+            color: #007bff;
+        }
+
+        .metric-value.properties {
+            color: #6c757d;
+        }
+
+        .metric-unit {
+            font-size: 14px;
+            color: #666;
+            margin-left: 2px;
+        }
+
+        .compare-checkbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .compare-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #4c6ef5;
+        }
+
+        .compare-label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        #compareBar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .selected-agents {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .selected-agent {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f4ff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .selected-agent img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .remove-agent {
+            cursor: pointer;
+            color: #666;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .compare-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .compare-button {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .compare-button.primary {
+            background: #4c6ef5;
+            color: white;
+        }
+
+        .compare-button.secondary {
+            background: #f0f4ff;
+            color: #4c6ef5;
+        }
+
+        .compare-button:hover {
+            opacity: 0.9;
+        }
+
+        #comparisonModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1100;
+            overflow-y: auto;
+        }
+
+        .comparison-content {
+            background: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .agent-comparison {
+            text-align: center;
+        }
+
+        .agent-comparison img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .agent-comparison h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .agent-comparison p {
+            margin: 0;
+            color: #666;
+        }
+
+        .metric-comparison {
+            display: grid;
+            gap: 20px;
+        }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: 200px repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .metric-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .metric-value {
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .metric-value.price {
+            color: #4c6ef5;
+        }
+
+        .metric-value.days {
+            color: #2f9e44;
+        }
+
+        .metric-value.properties {
+            color: #e03131;
+        }
+
+        .agency-name {
+            font-size: 36px;  /* Increased font size */
+            margin-bottom: 15px;
+        }
+
+        .agency-address, .agency-phone {
+            font-size: 18px;  /* Increased font size */
+            margin-bottom: 10px;
+        }
+
+        .comparison-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .comparison-filters {
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-button {
+            padding: 8px 16px;
+            border: 1px solid #4c6ef5;
+            border-radius: 20px;
+            background: transparent;
+            color: #4c6ef5;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-button:hover {
+            background: rgba(76, 110, 245, 0.1);
+        }
+
+        .filter-button.active {
+            background: #4c6ef5;
+            color: white;
+        }
+
+        .sort-icon {
+            font-size: 12px;
+        }
+
+        .sort-icon.asc {
+            transform: rotate(180deg);
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .agent-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .agent-cell img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .agent-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .agent-position {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .price {
+            color: #4c6ef5;
+            font-weight: 500;
+        }
+
+        .days {
+            color: #2f9e44;
+            font-weight: 500;
+        }
+
+        .properties {
+            color: #e03131;
+            font-weight: 500;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .agency-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .agency-logo-image {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .agency-card {
+            position: relative;
+            /* ... existing agency-card styles ... */
+        }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPGzKsZchYfWG7uYpa3ZYJgUCYS0c9_fU"></script>
 </head>
@@ -1128,6 +1888,44 @@
 
     <div class="modal-backdrop" id="modal-backdrop"></div>
     <div class="staff-modal" id="staff-modal"></div>
+
+    <!-- Comparison Bar -->
+    <div id="compareBar">
+        <div class="selected-agents"></div>
+        <div class="compare-actions">
+            <button class="compare-button primary" onclick="showComparison()">Compare Selected</button>
+            <button class="compare-button secondary" onclick="clearComparison()">Clear All</button>
+            </div>
+            </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal">
+        <div class="comparison-content">
+            <span class="close-modal" onclick="hideComparisonModal()">&times;</span>
+            <h2>Agent Comparison</h2>
+            <div class="comparison-grid"></div>
+            <div class="metric-comparison"></div>
+                    </div>
+                </div>
+
+    <!-- Agency Comparison Bar -->
+    <div id="agencyCompareBar">
+        <div class="selected-agencies"></div>
+        <div class="agency-compare-actions">
+            <button class="agency-compare-button primary" onclick="showAgencyComparison()">Compare Selected</button>
+            <button class="agency-compare-button secondary" onclick="clearAgencyComparison()">Clear All</button>
+                </div>
+            </div>
+
+    <!-- Agency Comparison Modal -->
+    <div id="agencyComparisonModal">
+        <div class="agency-comparison-content">
+            <span class="close-modal" onclick="hideAgencyComparisonModal()">&times;</span>
+            <h2>Agency Comparison</h2>
+            <div class="agency-comparison-grid"></div>
+            <div class="agency-metric-comparison"></div>
+        </div>
+    </div>
 
     <script>
         let map;
@@ -1413,8 +2211,8 @@
                                                  style="display: flex; flex-direction: column; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
                                                 <div class="staff-photo-container">
                                                     <img src="/images/agents/Suburbs/South Yarra - 3141/Belle Property/anthony benic.jpg" alt="Anthony Benic" class="staff-photo">
-                                                </div>
-                                                <div style="text-align: center;">
+                                        </div>
+                                        <div style="text-align: center;">
                                                     <h4 style="margin: 0 0 5px 0; color: #333;">Anthony Benic</h4>
                                                     <p style="margin: 0 0 5px 0; color: #666; font-size: 14px;">Sales Associate</p>
                                                     <p style="margin: 0 0 15px 0; color: #4c6ef5; font-size: 14px;">0466 474 536</p>
@@ -1489,7 +2287,7 @@
                                 <div class="staff-category" data-category="property" style="display: none; margin-top: 20px;">
                                     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px;">
                                         ${agency.staff.filter(member => 
-                                            member.position.toLowerCase().includes('property')
+                                            member.position.toLowerCase().includes('property manager')
                                         ).map(member => `
                                             <div class="staff-member" 
                                                  onclick="showStaffModal(${JSON.stringify(member).replace(/"/g, '&quot;')})"
@@ -1505,20 +2303,12 @@
                                                     ${member.performance ? `
                                                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%;">
                                                         <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
-                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">$${member.performance.medianSoldPrice}k</div>
-                                                            <div style="font-size: 12px; color: #666;">Median sold price</div>
+                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">${member.performance.propertiesLeased}</div>
+                                                            <div style="font-size: 12px; color: #666;">Properties Leased</div>
                                                         </div>
                                                         <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
-                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">${member.performance.medianDaysAdvertised}</div>
-                                                            <div style="font-size: 12px; color: #666;">Median days advertised</div>
-                                                        </div>
-                                                        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
-                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">${member.performance.propertiesSoldLead}</div>
-                                                            <div style="font-size: 12px; color: #666;">Properties sold (as lead)</div>
-                                                        </div>
-                                                        <div style="background: #f8f9fa; padding: 12px; border-radius: 8px; text-align: center;">
-                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">${member.performance.propertiesSoldSecondary}</div>
-                                                            <div style="font-size: 12px; color: #666;">Properties sold (as secondary)</div>
+                                                            <div style="font-size: 20px; font-weight: bold; color: #4c6ef5; margin-bottom: 5px;">$${member.performance.medianLeasedPrice}</div>
+                                                            <div style="font-size: 12px; color: #666;">Median Leased Price</div>
                                                         </div>
                                                     </div>
                                                     ` : ''}
@@ -2800,6 +3590,540 @@
                 default:
                     return '';
             }
+        }
+
+        function createAgencyCard(agency) {
+            const card = document.createElement('div');
+            card.className = 'agency-card';
+            
+            // Add toggle button only for VicProp
+            const toggleButton = agency.name === 'VicProp' ? `
+                <div class="agency-compare-toggle">
+                    <label class="agency-compare-label">
+                        <input type="checkbox" onchange="toggleAgencyCompare('${agency.name}', this)" />
+                        Compare
+                    </label>
+                </div>
+            ` : '';
+
+            // Add logo for VicProp
+            const logoHtml = agency.name === 'VicProp' ? `
+                <div class="agency-logo">
+                    <img src="/images/agents/Suburbs/Melbourne - 3000/Vicprop/Vicprop logo.jpeg" alt="VicProp Logo" class="agency-logo-image">
+                </div>
+            ` : '';
+
+            card.innerHTML = `
+                ${toggleButton}
+                ${logoHtml}
+                <h2 class="agency-name">${agency.name}</h2>
+                <p class="agency-address"><i class="fas fa-map-marker-alt"></i> ${agency.address}</p>
+                <p class="agency-phone"><i class="fas fa-phone"></i> ${agency.phone}</p>
+                <div class="agency-staff">
+                    <h3>Our Team</h3>
+                    <div class="staff-grid">
+                        ${agency.staff.map(agent => createAgentCard(agent).outerHTML).join('')}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Add comparison functionality
+        let selectedAgents = [];
+
+        function toggleCompare(agentName, checkbox) {
+            const compareBar = document.getElementById('compareBar');
+            
+            if (checkbox.checked) {
+                if (selectedAgents.length >= 3) {
+                    alert('You can compare up to 3 agents at a time');
+                    checkbox.checked = false;
+                    return;
+                }
+                
+                const agent = findAgent(agentName);
+                if (agent) {
+                    selectedAgents.push(agent);
+                }
+            } else {
+                selectedAgents = selectedAgents.filter(a => a.name !== agentName);
+            }
+
+            updateCompareBar();
+        }
+
+        function findAgent(name) {
+            for (const agency of agencies) {
+                if (agency.staff) {
+                    const agent = agency.staff.find(a => a.name === name);
+                    if (agent) return agent;
+                }
+            }
+            return null;
+        }
+
+        function updateCompareBar() {
+            const compareBar = document.getElementById('compareBar');
+            const selectedAgentsDiv = document.querySelector('.selected-agents');
+
+            if (selectedAgents.length > 0) {
+                compareBar.style.display = 'flex';
+                selectedAgentsDiv.innerHTML = selectedAgents.map(agent => `
+                    <div class="selected-agent">
+                        <img src="${agent.photo}" alt="${agent.name}" onerror="this.src='/images/placeholder.jpg'">
+                        <span>${agent.name}</span>
+                        <span class="remove-agent" onclick="removeAgent('${agent.name}')">&times;</span>
+                    </div>
+                `).join('');
+            } else {
+                compareBar.style.display = 'none';
+            }
+        }
+
+        function removeAgent(agentName) {
+            const checkbox = document.querySelector(`input[type="checkbox"][onchange*="${agentName}"]`);
+            if (checkbox) checkbox.checked = false;
+            
+            selectedAgents = selectedAgents.filter(a => a.name !== agentName);
+            updateCompareBar();
+        }
+
+        function clearComparison() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][onchange*="toggleCompare"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            
+            selectedAgents = [];
+            updateCompareBar();
+            hideComparisonModal();
+        }
+
+        function showComparison() {
+            const modal = document.getElementById('comparisonModal');
+            const content = document.querySelector('.comparison-content');
+            const comparisonGrid = content.querySelector('.comparison-grid');
+            const metricComparison = content.querySelector('.metric-comparison');
+
+            // Update agent comparison grid
+            comparisonGrid.innerHTML = selectedAgents.map(agent => `
+                <div class="agent-comparison">
+                    <img src="${agent.photo}" alt="${agent.name}" class="agent-profile-image" onerror="this.src='/images/placeholder.jpg'">
+                    <h3>${agent.name}</h3>
+                    <p>${agent.position}</p>
+                </div>
+            `).join('');
+
+            // Update metric comparison
+            metricComparison.innerHTML = `
+                <div class="metric-row">
+                    <div class="metric-label">Median Sold Price</div>
+                    ${selectedAgents.map(agent => `
+                        <div class="metric-value price">$${agent.performance?.medianSoldPrice || 'N/A'}k</div>
+                    `).join('')}
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Median Days Advertised</div>
+                    ${selectedAgents.map(agent => `
+                        <div class="metric-value days">${agent.performance?.medianDaysAdvertised || 'N/A'}</div>
+                    `).join('')}
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Properties Sold (Lead)</div>
+                    ${selectedAgents.map(agent => `
+                        <div class="metric-value properties">${agent.performance?.propertiesSoldLead || 'N/A'}</div>
+                    `).join('')}
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Properties Sold (Secondary)</div>
+                    ${selectedAgents.map(agent => `
+                        <div class="metric-value properties">${agent.performance?.propertiesSoldSecondary || 'N/A'}</div>
+                    `).join('')}
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function hideComparisonModal() {
+            const modal = document.getElementById('comparisonModal');
+            modal.style.display = 'none';
+        }
+
+        function showAgencyProfile(agency) {
+            const modal = document.getElementById('staff-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            
+            // Create the modal content
+            const modalContent = document.createElement('div');
+            modalContent.className = 'staff-modal-content';
+            
+            // Add agency header
+            modalContent.innerHTML = `
+                <span class="close-modal" onclick="hideStaffModal()">&times;</span>
+                <h2>${agency.name}</h2>
+                <div class="agency-info">
+                    <p><i class="fas fa-map-marker-alt"></i> ${agency.address}</p>
+                    <p><i class="fas fa-phone"></i> ${agency.phone}</p>
+                </div>
+                
+                <div class="staff-section">
+                    <h3>Our Team</h3>
+                    <div class="staff-grid">
+                        ${agency.staff.map(agent => createAgentCard(agent).outerHTML).join('')}
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>Compare Agents</h3>
+                    <div class="comparison-filters">
+                        <div class="filter-group">
+                            <label>Sort by:</label>
+                            <button class="filter-button" onclick="sortAgentsInModal('medianSoldPrice')">
+                                Median Sold Price
+                                <span class="sort-icon">↕</span>
+                            </button>
+                            <button class="filter-button" onclick="sortAgentsInModal('medianDaysAdvertised')">
+                                Days Advertised
+                                <span class="sort-icon">↕</span>
+                            </button>
+                            <button class="filter-button" onclick="sortAgentsInModal('propertiesSoldLead')">
+                                Properties Sold (Lead)
+                                <span class="sort-icon">↕</span>
+                            </button>
+                            <button class="filter-button" onclick="sortAgentsInModal('propertiesSoldSecondary')">
+                                Properties Sold (Secondary)
+                                <span class="sort-icon">↕</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Agent</th>
+                                    <th>Median Sold Price</th>
+                                    <th>Days Advertised</th>
+                                    <th>Properties Sold (Lead)</th>
+                                    <th>Properties Sold (Secondary)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${agency.staff.map(agent => `
+                                    <tr>
+                                        <td>
+                                            <div class="agent-cell">
+                                                <img src="${agent.photo}" alt="${agent.name}" onerror="this.src='/images/placeholder.jpg'">
+                                                <div>
+                                                    <div class="agent-name">${agent.name}</div>
+                                                    <div class="agent-position">${agent.position}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="price">$${agent.performance?.medianSoldPrice || 'N/A'}k</td>
+                                        <td class="days">${agent.performance?.medianDaysAdvertised || 'N/A'}</td>
+                                        <td class="properties">${agent.performance?.propertiesSoldLead || 'N/A'}</td>
+                                        <td class="properties">${agent.performance?.propertiesSoldSecondary || 'N/A'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            modal.appendChild(modalContent);
+            backdrop.style.display = 'block';
+            modal.style.display = 'block';
+        }
+
+        // Add styles for the comparison table
+        const style = document.createElement('style');
+        style.textContent = `
+            .comparison-section {
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+
+            .comparison-filters {
+                margin-bottom: 20px;
+            }
+
+            .filter-group {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .filter-button {
+                padding: 8px 16px;
+                border: 1px solid #4c6ef5;
+                border-radius: 20px;
+                background: transparent;
+                color: #4c6ef5;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .filter-button:hover {
+                background: rgba(76, 110, 245, 0.1);
+            }
+
+            .filter-button.active {
+                background: #4c6ef5;
+                color: white;
+            }
+
+            .sort-icon {
+                font-size: 12px;
+            }
+
+            .sort-icon.asc {
+                transform: rotate(180deg);
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+                margin-top: 20px;
+            }
+
+            .comparison-table table {
+                width: 100%;
+                border-collapse: collapse;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            .comparison-table th {
+                background: #f8f9fa;
+                font-weight: 600;
+                color: #333;
+            }
+
+            .comparison-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .agent-cell {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .agent-cell img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .agent-name {
+                font-weight: 500;
+                color: #333;
+            }
+
+            .agent-position {
+                font-size: 12px;
+                color: #666;
+            }
+
+            .price {
+                color: #4c6ef5;
+                font-weight: 500;
+            }
+
+            .days {
+                color: #2f9e44;
+                font-weight: 500;
+            }
+
+            .properties {
+                color: #e03131;
+                font-weight: 500;
+            }
+
+            .comparison-table tr:hover {
+                background: #f8f9fa;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function hideAgencyComparisonModal() {
+            const modal = document.getElementById('agencyComparisonModal');
+            modal.style.display = 'none';
+        }
+
+        // Add agency comparison functionality
+        let selectedAgencies = [];
+
+        function toggleAgencyCompare(agencyName, checkbox) {
+            const compareBar = document.getElementById('agencyCompareBar');
+            
+            if (checkbox.checked) {
+                if (selectedAgencies.length >= 3) {
+                    alert('You can compare up to 3 agencies at a time');
+                    checkbox.checked = false;
+                    return;
+                }
+                
+                const agency = findAgency(agencyName);
+                if (agency) {
+                    selectedAgencies.push(agency);
+                }
+            } else {
+                selectedAgencies = selectedAgencies.filter(a => a.name !== agencyName);
+            }
+
+            updateAgencyCompareBar();
+        }
+
+        function findAgency(name) {
+            return agencies.find(a => a.name === name);
+        }
+
+        function updateAgencyCompareBar() {
+            const compareBar = document.getElementById('agencyCompareBar');
+            const selectedAgenciesDiv = document.querySelector('.selected-agencies');
+
+            if (selectedAgencies.length > 0) {
+                compareBar.style.display = 'flex';
+                selectedAgenciesDiv.innerHTML = selectedAgencies.map(agency => `
+                    <div class="selected-agency">
+                        <span>${agency.name}</span>
+                        <span class="remove-agency" onclick="removeAgency('${agency.name}')">&times;</span>
+                    </div>
+                `).join('');
+            } else {
+                compareBar.style.display = 'none';
+            }
+        }
+
+        function removeAgency(agencyName) {
+            const checkbox = document.querySelector(`input[type="checkbox"][onchange*="${agencyName}"]`);
+            if (checkbox) checkbox.checked = false;
+            
+            selectedAgencies = selectedAgencies.filter(a => a.name !== agencyName);
+            updateAgencyCompareBar();
+        }
+
+        function clearAgencyComparison() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][onchange*="toggleAgencyCompare"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            
+            selectedAgencies = [];
+            updateAgencyCompareBar();
+            hideAgencyComparisonModal();
+        }
+
+        function showAgencyComparison() {
+            const modal = document.getElementById('agencyComparisonModal');
+            const content = document.querySelector('.agency-comparison-content');
+            const comparisonGrid = content.querySelector('.agency-comparison-grid');
+            const metricComparison = content.querySelector('.agency-metric-comparison');
+
+            // Update agency comparison grid
+            comparisonGrid.innerHTML = selectedAgencies.map(agency => `
+                <div class="agency-comparison-card">
+                    <h3>${agency.name}</h3>
+                    <p>${agency.address}</p>
+                    <p>${agency.phone}</p>
+                </div>
+            `).join('');
+
+            // Calculate average metrics for each agency
+            const agencyMetrics = selectedAgencies.map(agency => {
+                const salesAgents = agency.staff.filter(agent => 
+                    agent.position.toLowerCase().includes('sales') || 
+                    agent.position.toLowerCase().includes('principal') || 
+                    agent.position.toLowerCase().includes('director')
+                );
+
+                const metrics = {
+                    medianSoldPrice: 0,
+                    medianDaysAdvertised: 0,
+                    propertiesSoldLead: 0,
+                    propertiesSoldSecondary: 0
+                };
+
+                if (salesAgents.length > 0) {
+                    metrics.medianSoldPrice = salesAgents.reduce((sum, agent) => 
+                        sum + (agent.performance?.medianSoldPrice || 0), 0) / salesAgents.length;
+                    metrics.medianDaysAdvertised = salesAgents.reduce((sum, agent) => 
+                        sum + (agent.performance?.medianDaysAdvertised || 0), 0) / salesAgents.length;
+                    metrics.propertiesSoldLead = salesAgents.reduce((sum, agent) => 
+                        sum + (agent.performance?.propertiesSoldLead || 0), 0) / salesAgents.length;
+                    metrics.propertiesSoldSecondary = salesAgents.reduce((sum, agent) => 
+                        sum + (agent.performance?.propertiesSoldSecondary || 0), 0) / salesAgents.length;
+                }
+
+                return metrics;
+            });
+
+            // Update metric comparison
+            metricComparison.innerHTML = `
+                <div class="agency-metric-row">
+                    <div class="agency-metric-label">Average Median Sold Price</div>
+                    ${agencyMetrics.map(metrics => `
+                        <div class="agency-metric-value price">$${Math.round(metrics.medianSoldPrice)}k</div>
+                    `).join('')}
+                </div>
+                <div class="agency-metric-row">
+                    <div class="agency-metric-label">Average Days Advertised</div>
+                    ${agencyMetrics.map(metrics => `
+                        <div class="agency-metric-value days">${Math.round(metrics.medianDaysAdvertised)}</div>
+                    `).join('')}
+                </div>
+                <div class="agency-metric-row">
+                    <div class="agency-metric-label">Average Properties Sold (Lead)</div>
+                    ${agencyMetrics.map(metrics => `
+                        <div class="agency-metric-value properties">${Math.round(metrics.propertiesSoldLead)}</div>
+                    `).join('')}
+                </div>
+                <div class="agency-metric-row">
+                    <div class="agency-metric-label">Average Properties Sold (Secondary)</div>
+                    ${agencyMetrics.map(metrics => `
+                        <div class="agency-metric-value properties">${Math.round(metrics.propertiesSoldSecondary)}</div>
+                    `).join('')}
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function createAgentCard(agent) {
+            const card = document.createElement('div');
+            card.className = 'staff-member';
+            card.setAttribute('onclick', `showStaffModal(${JSON.stringify(agent)})`);
+            
+            card.innerHTML = `
+                <div class="agent-compare-toggle">
+                    <label class="agent-compare-label">
+                        <input type="checkbox" onchange="toggleCompare('${agent.name}', this); event.stopPropagation();" />
+                        <span>Compare</span>
+                    </label>
+                </div>
+                <img src="${agent.photo}" alt="${agent.name}" class="staff-photo" onerror="this.src='/images/placeholder.jpg'">
+                <h3 class="staff-name">${agent.name}</h3>
+                <p class="staff-position">${agent.position}</p>
+                <p class="staff-phone">${agent.phone}</p>
+            `;
+            
+            return card;
         }
     </script>
 </body>

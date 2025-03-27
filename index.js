@@ -14,15 +14,464 @@ const agentsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'agen
 // Hardcoded agency data
 const agencies = [
     {
+        name: "Werribee Real Estate",
+        address: "44 Watton St, Werribee VIC 3030",
+        phone: "1300 997 553",
+        lat: -37.8999,
+        lng: 144.6611,
+        medianLeasePrice: "450",
+        medianDaysAdvertised: "23",
+        propertiesLeased: "203",
+        propertiesForRent: "26",
+        medianSoldPrice: "600",
+        medianDaysAdvertisedSales: "71",
+        propertiesSold: "43",
+        propertiesForSale: "11",
+        staff: [
+            {
+                name: 'Paul Di Natale',
+                position: 'Founder',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Paul Di Natale.jpg'
+            },
+            {
+                name: 'John Di Natale',
+                position: 'Director',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/John Di Natale.jpg'
+            },
+            {
+                name: 'Jodi Licastro',
+                position: 'General Manager/Licensed Estate Agent',
+                phone: '0433 950 281',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Jodi Licastro.jpg',
+                performance: {
+                    medianSoldPrice: "669",
+                    medianDaysAdvertised: "62",
+                    propertiesSoldLead: "16",
+                    propertiesSoldSecondary: "0"
+                }
+            },
+            {
+                name: 'Craig Vilcins',
+                position: 'Senior Sales Consultant/LEA/Auctioneer',
+                phone: '0437 149 421',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Craig Vilcins.jpg',
+                performance: {
+                    medianSoldPrice: "600",
+                    medianDaysAdvertised: "71",
+                    propertiesSoldLead: "27",
+                    propertiesSoldSecondary: "16"
+                }
+            },
+            {
+                name: 'John J Di Natale',
+                position: 'Business Development Manager and Sales Consultant',
+                phone: '0433 129 731',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/John J Di Natale.jpg'
+            },
+            {
+                name: 'Paul Moses',
+                position: 'Owners Corporation Manager',
+                phone: '0429 619 847',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Paul Moses.jpg'
+            },
+            {
+                name: 'Carol Davis',
+                position: 'Accounts Manager',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Carol Davis.jpg'
+            },
+            {
+                name: 'Bianca Lixon',
+                position: 'Head of Property Management/Licensed Estate Agent',
+                phone: '0488 738 372',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Bianca Lixon.jpg'
+            },
+            {
+                name: 'Taleah Donnelly',
+                position: 'Business Development Manager',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Taleah Donnelly.jpg'
+            },
+            {
+                name: 'Charles Cipri',
+                position: 'Senior Property Manager/Sales Executive Commercial',
+                phone: '0407 549 796',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Charles Cipri.jpg'
+            },
+            {
+                name: 'Susana Maltaric',
+                position: 'Commercial Leasing Manager',
+                phone: '0429 795 036',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Susana Maltaric.jpg'
+            },
+            {
+                name: 'Bianca Birnbauer',
+                position: 'Property Manager',
+                phone: '0432 908 661',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Bianca Birnbauer.jpg'
+            },
+            {
+                name: 'Dylan Cropley',
+                position: 'Property Manager/Sales Consultant',
+                phone: '0437 532 999',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Dylan Cropley.jpg'
+            },
+            {
+                name: 'Karla Vella',
+                position: 'Senior Property Manager',
+                phone: '0412 378 429',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Karla Vella.jpg'
+            },
+            {
+                name: 'Anthony Amanatidis',
+                position: 'Property Manager',
+                phone: '0437 877 044',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Anthony Amanatidis.jpg'
+            },
+            {
+                name: 'Blake O\'Neil',
+                position: 'Property Manager',
+                phone: '0468 354 570',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Blake O\'Neil.jpg'
+            },
+            {
+                name: 'Ashlee Mitchell',
+                position: 'Property Manager/Compliance Department',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Ashlee Mitchell.jpg'
+            },
+            {
+                name: 'Rachelle Rush',
+                position: 'Property Manager',
+                phone: '0425 726 498',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Rachelle Rush.jpg'
+            },
+            {
+                name: 'Kathryn Baker',
+                position: 'Property Management Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Kathryn Baker.jpg'
+            },
+            {
+                name: 'Cassandra Young',
+                position: 'Inspection Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Cassandra Young.jpg'
+            },
+            {
+                name: 'Katherine Wells',
+                position: 'Inspection Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Katherine Wells.jpg'
+            },
+            {
+                name: 'Maree Taylor',
+                position: 'Inspection Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Maree Taylor.jpg'
+            },
+            {
+                name: 'Tania Mackenzie',
+                position: 'Administration',
+                phone: '0434 574 900',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Tania Mackenzie.jpg'
+            },
+            {
+                name: 'Lea Antenor Cruz',
+                position: 'Property Management Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Lea Antenor Cruz.jpg'
+            },
+            {
+                name: 'Karin Woods',
+                position: 'Receptionist',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Karin Woods.jpg'
+            },
+            {
+                name: 'Kristelle Torrecampo',
+                position: 'Property Manager Assistant',
+                phone: '1300 997 553',
+                photo: '/images/agents/Suburbs/Werribee - 3030/Werribee Real Estate/Kristelle Torrecampo.jpg'
+            }
+        ]
+    },
+    {
         name: "Melcorp Real Estate",
         address: "477 Swanston St, Melbourne VIC 3000",
         phone: "03 9663 1117",
         lat: -37.809847,
         lng: 144.963168,
-        medianLeasePrice: "550",
-        medianDaysAdvertised: "32",
-        propertiesLeased: "1,245",
-        propertiesForRent: "89"
+        medianLeasePrice: "675",
+        medianDaysAdvertised: "21",
+        propertiesLeased: "400",
+        propertiesForRent: "29",
+        medianSoldPrice: "485",
+        medianDaysAdvertisedSales: "48.5",
+        propertiesSold: "103",
+        propertiesForSale: "53",
+        staff: [
+            {
+                name: 'Mark Giuliano',
+                position: 'Director - OIEC',
+                phone: '0405 030 000',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Mark Giuliano.jpg',
+                performance: {
+                    medianSoldPrice: "581",
+                    medianDaysAdvertised: 120,
+                    propertiesSoldLead: 0,
+                    propertiesSoldSecondary: 2
+                }
+            },
+            {
+                name: 'Allison Osborne',
+                position: 'Head of Department - Property Management',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Allison Osborne.jpg'
+            },
+            {
+                name: 'Anna Theo',
+                position: 'Head of Department - Senior Property Manager',
+                phone: '03 9659 3626',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Anna Theo.jpg'
+            },
+            {
+                name: 'Calvin Tan',
+                position: 'Head of Department - Business Development Manager',
+                phone: '03 9965 3651',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Calvin Tan.jpg'
+            },
+            {
+                name: 'Irena Davidovic',
+                position: 'Commercial Property Manager',
+                phone: '03 9965 3651 4238 3319',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Irena Davidovic.jpg'
+            },
+            {
+                name: 'Sergio Lopez',
+                position: 'Head of Department - Senior Sales Executive',
+                phone: '0404 659 330',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Sergio Lopez.jpg',
+                performance: {
+                    medianSoldPrice: "730",
+                    medianDaysAdvertised: "44",
+                    propertiesSoldLead: "18",
+                    propertiesSoldSecondary: "2"
+                }
+            },
+            {
+                name: 'Sophia Zhu',
+                position: 'Senior Sales Executive & Licensed Estate Agent',
+                phone: '0433 962 828',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Sophia Zhu.jpg',
+                performance: {
+                    medianSoldPrice: "518",
+                    medianDaysAdvertised: "44",
+                    propertiesSoldLead: "36",
+                    propertiesSoldSecondary: "0"
+                }
+            },
+            {
+                name: 'Rita Lin',
+                position: 'Senior Sales Executive & Licensed Estate Agent',
+                phone: '0410 603 667',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Rita Lin.jpg',
+                performance: {
+                    medianSoldPrice: "503",
+                    medianDaysAdvertised: "63",
+                    propertiesSoldLead: "33",
+                    propertiesSoldSecondary: "5"
+                }
+            },
+            {
+                name: 'Jarryd Hatfield',
+                position: 'Senior Sales Executive',
+                phone: '0452 337 803',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Jarryd Hatfield.jpg',
+                performance: {
+                    medianSoldPrice: "434",
+                    medianDaysAdvertised: "50",
+                    propertiesSoldLead: "21",
+                    propertiesSoldSecondary: "8"
+                }
+            },
+            {
+                name: 'Precy Peet',
+                position: 'Sales Executive & Licensed Estate Agent',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Precy Peet.jpg',
+                performance: {
+                    medianSoldPrice: "665",
+                    medianDaysAdvertised: "41",
+                    propertiesSoldLead: "6",
+                    propertiesSoldSecondary: "1"
+                }
+            },
+            {
+                name: 'Jimmy Zhou',
+                position: 'Senior Sales Executive',
+                phone: '0433 570 970',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Jimmy Zhou.jpg',
+                performance: {
+                    medianSoldPrice: "560",
+                    medianDaysAdvertised: "61",
+                    propertiesSoldLead: "24",
+                    propertiesSoldSecondary: "2"
+                }
+            },
+            {
+                name: 'Mattia Pecorino',
+                position: 'Senior Sales Executive',
+                phone: '0437 012 738',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Mattia Pecorino.jpg',
+                performance: {
+                    medianSoldPrice: "498",
+                    medianDaysAdvertised: "36",
+                    propertiesSoldLead: "13",
+                    propertiesSoldSecondary: "9"
+                }
+            },
+            {
+                name: 'Matilda Ward',
+                position: 'Sales Administrator',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Matilda Ward.jpg'
+            },
+            {
+                name: 'Kerri Gartshore',
+                position: 'Team Leader',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Kerri Gartshore.jpg'
+            },
+            {
+                name: 'Trish Destito',
+                position: 'Branch Manager Southbank & Senior Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Trish Destito.jpg'
+            },
+            {
+                name: 'Deli Dinh',
+                position: 'Senior Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Deli Dinh.jpg'
+            },
+            {
+                name: 'Suzii Keay',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Suzii Keay.jpg'
+            },
+            {
+                name: 'Rita Gong',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Rita Gong.jpg'
+            },
+            {
+                name: 'Ash Rahman',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Ash Rahman.jpg'
+            },
+            {
+                name: 'Kang Ni',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Kang Ni.jpg'
+            },
+            {
+                name: 'Shenna Atmadja',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Shenna Atmadja.jpg'
+            },
+            {
+                name: 'Claudia Tanser',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Claudia Tanser.jpg'
+            },
+            {
+                name: 'Jordan Nunns',
+                position: 'Property Executive',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Jordan Nunns.jpg'
+            },
+            {
+                name: 'Yana Jaruc',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Yana Jaruc.jpg'
+            },
+            {
+                name: 'Malcolm Gorringe',
+                position: 'Property Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Malcolm Gorringe.jpg'
+            },
+            {
+                name: 'Romina Alessi',
+                position: 'Leasing Consultant',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Romina Alessi.jpg'
+            },
+            {
+                name: 'Diana Camacho',
+                position: 'Leasing Consultant',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Diana Camacho.jpg'
+            },
+            {
+                name: 'Tanya Snell',
+                position: 'Trust Accountant',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Tanya Snell.jpg'
+            },
+            {
+                name: 'Alicia Henderson',
+                position: 'Accounts Administrator',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Alicia Henderson.jpg'
+            },
+            {
+                name: 'Helen Chen',
+                position: 'Marketing Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Helen Chen.jpg'
+            },
+            {
+                name: 'Malissa Sichampanakhone',
+                position: 'Receptionist',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Malissa Sichampanakhone.jpg'
+            },
+            {
+                name: 'Kat Singsathit',
+                position: 'Administration',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Kat Singsathit.jpg'
+            },
+            {
+                name: 'Lisa Johnson',
+                position: 'Receptionist',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Lisa Johnson.jpg'
+            },
+            {
+                name: 'Rebecca Adrain',
+                position: 'Receptionist',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Rebecca Adrain.jpg'
+            },
+            {
+                name: 'Maddi Lloyd',
+                position: 'People and Culture Manager',
+                phone: '03 9663 1117',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Melcorp/Maddi Lloyd.jpg'
+            }
+        ]
     },
     {
         name: "VicProp",
@@ -33,7 +482,87 @@ const agencies = [
         medianLeasePrice: "580",
         medianDaysAdvertised: "28",
         propertiesLeased: "890",
-        propertiesForRent: "76"
+        propertiesForRent: "76",
+        staff: [
+            {
+                name: 'Heather Zhang',
+                position: 'Group Compliance Manager - Property Management',
+                phone: '0432 412 395',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Heather Zhang.jpg'
+            },
+            {
+                name: 'Jamie Fan',
+                position: 'Sales Manager',
+                phone: '0401 546 981',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Jamie Fan.jpg'
+            },
+            {
+                name: 'Serena Liu',
+                position: 'Channel Sales Manager',
+                phone: '0425 399 203',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Serena Liu.jpg'
+            },
+            {
+                name: 'Nora Li',
+                position: 'Senior Sales Consultant',
+                phone: '0433 631 968',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Nora Li.jpg'
+            },
+            {
+                name: 'Ann Xie',
+                position: 'Sales Consultant',
+                phone: '0450 129 588',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Ann Xie.jpg'
+            },
+            {
+                name: 'Ellie Cheng',
+                position: 'Sales Consultant',
+                phone: '0451 181 001',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Ellie Cheng.jpg'
+            },
+            {
+                name: 'James Yao',
+                position: 'Sales Consultant',
+                phone: '0450 681 716',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/James Yao.jpg'
+            },
+            {
+                name: 'Mason Wong',
+                position: 'Senior Property Manager',
+                phone: '03 9602 1699',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Mason Wong.jpg'
+            },
+            {
+                name: 'Phoenix To',
+                position: 'Assistant Property Manager',
+                phone: '03 9602 1699',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Phoenix To.jpg'
+            },
+            {
+                name: 'Stanley Cheung',
+                position: 'Leasing Consultant',
+                phone: '0459 157 795',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Stanley Cheung.jpg'
+            },
+            {
+                name: 'Nora Xu',
+                position: 'Sales Consultant',
+                phone: '03 9602 1699',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Nora Xu.jpg'
+            },
+            {
+                name: 'Vincent Wu',
+                position: 'Sales Consultant',
+                phone: '03 9602 1699',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Vincent Wu.jpg'
+            },
+            {
+                name: 'Max Hou',
+                position: 'Sales Consultant',
+                phone: '03 9602 1699',
+                photo: '/images/agents/Suburbs/Melbourne - 3000/Vicprop/Max Hou.jpg'
+            }
+        ]
     },
     {
         name: "Kay & Burton Stonnington",
@@ -236,17 +765,6 @@ const agencies = [
             good: ["Excellent service", "Professional team", "Great property management"],
             bad: ["Response time could be better", "Communication needs improvement"]
         }
-    },
-    {
-        name: "Woodards",
-        address: "Level 1, 157 Toorak Rd, South Yarra, VIC 3141",
-        phone: "03 9866 4411",
-        lat: -37.839392,
-        lng: 144.997391,
-        medianLeasePrice: "595",
-        medianDaysAdvertised: "30",
-        propertiesLeased: "723",
-        propertiesForRent: "63"
     }
 ];
 
